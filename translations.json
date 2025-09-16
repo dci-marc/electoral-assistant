@@ -1,0 +1,22 @@
+{
+  "de": {
+    "title": "Kreis-Spiel",
+    "win": "🎉 Glückwunsch! Gewonnen: ",
+    "close": "Schließen",
+    "start": "Start",
+    "languages": {
+      "de": "🇩🇪",
+      "en": "🇬🇧"
+    }
+  },
+  "en": {
+    "title": "Circle Game",
+    "win": "🎉 Congratulations! You won: ",
+    "close": "Close",
+    "start": "Start",
+    "languages": {
+      "de": "🇩🇪",
+      "en": "🇬🇧"
+    }
+  }
+}
