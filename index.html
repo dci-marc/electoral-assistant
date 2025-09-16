@@ -352,8 +352,10 @@
 
         async function spin() {
             let delay = 80;
-            let index = 0;
-            const totalSteps = Math.floor(Math.random() * 10) + 30;
+            let index = Math.floor(Math.random() * buttons.length);
+            const baseSteps = Math.floor(Math.random() * 20) + 30;
+            const extraOffset = Math.floor(Math.random() * buttons.length);
+            const totalSteps = baseSteps + extraOffset;
             startBtn.disabled = true;
 
             for (let round = 0; round < totalSteps; round++) {
