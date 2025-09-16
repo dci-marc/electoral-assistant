@@ -354,6 +354,7 @@
             let delay = 80;
             let index = 0;
             const totalSteps = Math.floor(Math.random() * 10) + 30;
+            startBtn.disabled = true;
 
             for (let round = 0; round < totalSteps; round++) {
                 buttons.forEach(b => b.classList.remove("active"));
@@ -370,6 +371,7 @@
 
         function resetGame() {
             buttons.forEach(b => b.classList.remove("active"));
+            startBtn.disabled = false;
         }
 
         pageTitleEl.innerHTML = translations[currentLang].title;
