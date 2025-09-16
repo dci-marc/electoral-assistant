@@ -351,20 +351,27 @@
         }
 
         async function spin() {
-            let delay = 80;
-            let index = Math.floor(Math.random() * buttons.length);
-            const baseSteps = Math.floor(Math.random() * 20) + 30;
-            const extraOffset = Math.floor(Math.random() * buttons.length);
-            const totalSteps = baseSteps + extraOffset;
             startBtn.disabled = true;
+
+            const steps = buttons.length;
+            let index = Math.floor(Math.random() * steps);
+            const totalCycles = Math.floor(Math.random() * 3) + 3;
+            const winnerIndex = Math.floor(Math.random() * steps);
+            const totalSteps = totalCycles * steps + winnerIndex;
+
+            const minDelay = 50;
+            const maxDelay = 300;
 
             for (let round = 0; round < totalSteps; round++) {
                 buttons.forEach(b => b.classList.remove("active"));
                 buttons[index].classList.add("active");
-                index = (index + 1) % items[currentLang].length;
-                await sleep(delay);
 
-                if (round > totalSteps * 0.6) delay += 15;
+                index = (index + 1) % steps;
+
+                const progress = round / totalSteps;
+                const easedDelay = minDelay + (maxDelay - minDelay) * Math.pow(progress, 3) * (1 + 0.5 * progress);
+
+                await sleep(easedDelay);
             }
 
             modalText.textContent = translations[currentLang].win;
