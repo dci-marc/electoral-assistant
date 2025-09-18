@@ -1,1 +1,3 @@
-# electoral-assistant
+# Electoral Assistant
+
+Your voice matters!
