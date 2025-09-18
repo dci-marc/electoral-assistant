@@ -324,7 +324,15 @@
             }
         };
 
-        function createButtons() {
+        const shuffleArray = arr => {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        };
+
+        const createButtons = () => {
+            shuffleArray(items[currentLang]);
             buttons.forEach(b => b.remove());
             buttons = [];
 
@@ -351,11 +359,11 @@
             });
         }
 
-        function sleep(ms) {
+        const sleep = ms => {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        async function spin() {
+        const spin = async () => {
             startBtn.disabled = true;
 
             const steps = buttons.length;
@@ -383,7 +391,7 @@
             modalOverlay.classList.add("show");
         }
 
-        function resetGame() {
+        const resetGame = () => {
             buttons.forEach(b => b.classList.remove("active"));
             startBtn.disabled = false;
         }
